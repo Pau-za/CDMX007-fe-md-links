@@ -14,21 +14,21 @@ module.exports = program = () => {
   fs.readdir(path, (err, items) => {
     console.log(path);
     if (err) throw err;
-    console.log(items);
+    // console.log(items);
 
     for (var i = 0; i < items.length; i++) {
+      console.log(items[i]);
       const ext = pathE.extname(items[i]);
       console.log(ext);
 
-      //   console.log(items[i]);
-      if (ext === 'md') {
-          console.log(ext);
+      if (ext === '.md') {
+        console.log(items[i]);
         // fs.readFile lee un documento de forma asícrona de acuerdo a la ruta, url que le pases :D
-    //     fs.readFile(`${ext}`, 'utf8', (err, data) => {
-    //       //utf8 le pide que retorne el contenido del documento (data) como un string 
-    //       if (err) throw err;
-    //       console.log(data);
-    //     });
+        fs.readFile(`${items[i]}`, 'utf8', (err, data) => {
+          //utf8 le pide que retorne el contenido del documento (data) como un string 
+          if (err) throw err;
+          console.log(data);
+        });
       }
     }
   });
