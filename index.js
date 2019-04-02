@@ -9,7 +9,7 @@ module.exports =
 
 console.log(sum());
 
-// console.log(Number(process.argv[2, 3]));
+// console.log(process.argv);
 
 
 // console.log(sum(4, 5))
