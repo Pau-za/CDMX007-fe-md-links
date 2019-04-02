@@ -8,10 +8,13 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "jest": "^24.5.0",
     "eslint": "^5.9.0",
     "eslint-plugin-jest": "^22.1.2",
-    "htmlhint": "^0.10.1"
+    "htmlhint": "^0.10.1",
+    "jest": "^24.5.0",
+    "jsdom": "^14.0.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-link-attributes": "^2.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
