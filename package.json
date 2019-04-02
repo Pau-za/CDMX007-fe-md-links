@@ -22,7 +22,7 @@
   "main": "index.js",
   "directories": {
     "test": "test",
-    "start": "node bin/index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
