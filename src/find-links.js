@@ -7,6 +7,7 @@ const {
   JSDOM
 } = jsdom;
 const validate = require('./get-link');
+const stats = require('./stats');
 
 
 
@@ -36,7 +37,8 @@ module.exports = findLinks = () => {
       }
     }
     allLinks.push(totalLinks, totalNamesLinks);
-    validate(allLinks);
+    // validate(allLinks);
+    stats(allLinks);
     // console.log(allLinks[0]);
   })
 }
