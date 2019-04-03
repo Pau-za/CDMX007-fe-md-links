@@ -8,6 +8,8 @@ const {
 } = jsdom;
 const validate = require('./get-link');
 
+
+
 module.exports = findLinks = () => {
   if (process.argv.length <= 2) {
     console.log("Necesitas ingresar la ruta de un archivo con extensión md");
@@ -22,20 +24,20 @@ module.exports = findLinks = () => {
 
     let totalLinks = [];
     let totalNamesLinks = [];
-    let linksInfo = [];
+    // let link = [];
+    let allLinks = [];
     const obj = new JSDOM(renderedReadme).window.document.getElementsByTagName("a");
     for (const key in obj) {
       if (obj.hasOwnProperty(key)) {
-        totalLinks.push(obj[key].getAttribute("href"));
-        const link = obj[key].getAttribute("href");
-        const linkName = obj[key].textContent;
-        totalNamesLinks.push(obj[key].textContent);
-        linksInfo.push(`${'link a: ' + linkName + ', url: ' + link}`)
+       totalLinks.push(obj[key].getAttribute("href"));
+      //  link = obj[key].getAttribute("href");
+        // const linkName = obj[key].textContent;
+       totalNamesLinks.push(obj[key].textContent);
       }
     }
-    validate(totalLinks);
-    // console.log(linksInfo);
-
+    allLinks.push(totalLinks, totalNamesLinks);
+    validate(allLinks);
+    // console.log(allLinks[0]);
   })
 }
 
