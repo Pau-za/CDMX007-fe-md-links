@@ -9,13 +9,15 @@ module.exports =
       if (element.includes("https")) {
         https.get(`${element}`, (res) => {
           if (res.statusCode === 404) {
-            brokenLinks.push(element);
-            // console.log(brokenLinks);
-            return
+              console.log(element);
+            // brokenLinks.push(element);
+            // // console.log(brokenLinks);
+            // return brokenLinks;
           } else {
+              console.log(element);
             activeLinks.push(element);
             // console.log(activeLinks);
-            return
+            return activeLinks;
           }
           //   console.log('statusCode:', res.statusCode);
           //   console.log('headers:', res.headers);
@@ -68,7 +70,8 @@ module.exports =
         //       console.error(`Got error: ${e.message}`);
         //     });
       }
-      console.log(brokenLinks + ' página no encontrada')
-      console.log(activeLinks + ' página activa')
     });
+    // console.log(brokenLinks + ' página no encontrada');
+    // console.log(activeLinks + ' página activa');
+
   };

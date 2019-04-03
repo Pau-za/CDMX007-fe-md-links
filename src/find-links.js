@@ -30,12 +30,11 @@ module.exports = findLinks = () => {
         const link = obj[key].getAttribute("href");
         const linkName = obj[key].textContent;
         totalNamesLinks.push(obj[key].textContent);
-        // console.log('link ' + key + ' ' + linkName + ': ' + link);
         linksInfo.push(`${'link a: ' + linkName + ', url: ' + link}`)
       }
     }
-    // validate(totalLinks);
-    console.log(linksInfo);
+    validate(totalLinks);
+    // console.log(linksInfo);
 
   })
 }
