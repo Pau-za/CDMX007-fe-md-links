@@ -6,23 +6,18 @@ const jsdom = require("jsdom");
 const {
   JSDOM
 } = jsdom;
-const validate = require('./get-link');
+const validate = require('./validate');
 const stats = require('./stats');
-
-
 
 module.exports = findLinks = () => {
   if (process.argv.length <= 2) {
     console.log("Necesitas ingresar la ruta de un archivo con extensión md");
     process.exit(-1);
   }
-
   const userPath = path.resolve(process.argv[2]);
   fs.readFile(`${userPath}`, 'utf8', (err, data) => {
     if (err) throw err;
-
     const renderedReadme = md.render(data); // convierte el readme a html
-
     let totalLinks = [];
     let totalNamesLinks = [];
     // let link = [];
@@ -37,7 +32,7 @@ module.exports = findLinks = () => {
       }
     }
     allLinks.push(totalLinks, totalNamesLinks);
-    // validate(allLinks);
+    validate(allLinks);
     stats(allLinks);
     // console.log(allLinks[0]);
   })
