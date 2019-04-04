@@ -24,3 +24,7 @@ module.exports =
       }
     }
   }
+
+  module.exports = stats = () => {
+    
+  }
