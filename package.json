@@ -1,12 +1,15 @@
 {
-  "name": "md-links",
+  "name": "markdown-find-links",
   "version": "1.0.0",
   "scripts": {
     "htmlhint": "htmlhint src/*.html test/*.html",
     "eslint": "eslint --ext .js src/ test/",
     "pretest": "npm run eslint && npm run htmlhint",
     "test": "jest --coverage",
-    "start": "node server.js"
+    "start": "node ./mdLinks.js"
+  },
+  "bin":{
+    "mdLinks" : "./server.js"
   },
   "dependencies": {
     "eslint": "^5.9.0",

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const path = require('path');
 const validate = require('./src/validate.js');
@@ -11,7 +13,7 @@ const {
 } = jsdom;
 
 // cuando el usuario no introduce la ruta de la carpeta que quiere buscar
-module.exports = directoryLook = () => {
+module.exports = mdLinks = () => {
   if (process.argv.length <= 2) {
     console.log("You need to give a file or a directory path");
     process.exit(-1);
@@ -68,4 +70,4 @@ module.exports = directoryLook = () => {
     }
   }
 }
-console.log(directoryLook());
+console.log(mdLinks());
