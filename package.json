@@ -5,7 +5,8 @@
     "htmlhint": "htmlhint src/*.html test/*.html",
     "eslint": "eslint --ext .js src/ test/",
     "pretest": "npm run eslint && npm run htmlhint",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "start": "node server.js"
   },
   "dependencies": {
     "eslint": "^5.9.0",
@@ -22,10 +23,9 @@
     "jest": "^23.6.0"
   },
   "description": "[Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado\r ligero muy popular entre developers. Es usado en muchísimas plataformas que\r manejan texto plano (GitHub, foros, blogs, ...), y es muy común\r encontrar varios archivos en ese formato en cualquier tipo de repositorio\r (empezando por el tradicional `README.md`).",
-  "main": "index.js",
+  "main": "server.js",
   "directories": {
-    "test": "test",
-    "start": "node server.js"
+    "test": "test"
   },
   "repository": {
     "type": "git",

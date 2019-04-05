@@ -9,17 +9,17 @@ module.exports =
         // console.log(allLinks[1][i])
         https.get(allLinks[0][i], (res) => {
           if (res.statusCode !== 404) {
-            console.log('Result: OK. Response: ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ', url: ' + allLinks[0][i]);
+            console.log('Result: OK. Response:  ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ',  url: ' + allLinks[0][i]);
           } else {
-            console.log('Result: FAIL. Response: ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ', url: ' + allLinks[0][i]);
+            console.log('Result: FAIL. Response:  ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ',   url: ' + allLinks[0][i]);
           }
         })
       } else {
         http.get(allLinks[0][i], (res) => {
           if (res.statusCode !== 404) {
-            console.log('Result: OK. Response: ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ', url: ' + allLinks[0][i]);
+            console.log('Result: OK. Response:  ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ',  url: ' + allLinks[0][i]);
           } else {
-            console.log('Result: FAIL. Response: ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ', url: ' + allLinks[0][i]);
+            console.log('Result: FAIL. Response:  ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ',  url: ' + allLinks[0][i]);
           }
         })
       }
