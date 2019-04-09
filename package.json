@@ -1,6 +1,9 @@
 {
   "name": "markdown-find-links",
   "version": "1.0.0",
+  "bin": {
+    "mdLinks": "./mdLinks.js"
+  },
   "scripts": {
     "htmlhint": "htmlhint src/*.html test/*.html",
     "eslint": "eslint --ext .js src/ test/",
@@ -8,22 +11,18 @@
     "test": "jest --coverage",
     "start": "node ./mdLinks.js"
   },
-  "bin":{
-    "mdLinks" : "./server.js"
-  },
   "dependencies": {
+    "chalk": "^2.4.2",
     "eslint": "^5.9.0",
-    "eslint-plugin-jest": "^22.1.2",
-    "htmlhint": "^0.10.1",
-    "jest": "^24.5.0",
     "jsdom": "^14.0.0",
     "markdown-it": "^8.4.2",
-    "markdown-it-link-attributes": "^2.1.0"
+    "node-emoji": "^1.10.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-jest": "^24.0.0",
-    "jest": "^23.6.0"
+    "jest": "^24.5.0",
+    "eslint-plugin-jest": "^22.1.2"
   },
   "description": "[Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado\r ligero muy popular entre developers. Es usado en muchísimas plataformas que\r manejan texto plano (GitHub, foros, blogs, ...), y es muy común\r encontrar varios archivos en ese formato en cualquier tipo de repositorio\r (empezando por el tradicional `README.md`).",
   "main": "server.js",

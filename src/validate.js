@@ -1,25 +1,27 @@
 const https = require('https');
 const http = require('http');
+const chalk = require('chalk');
+const emoji = require('node-emoji');
+
 
 module.exports =
   validate = (allLinks) => {
-    console.log('validate results:')
+    console.log(chalk.redBright('--validate results:'))
     for (let i = 0; i < allLinks[0].length; i++) {
       if (allLinks[0][i].includes("https")) {
-        // console.log(allLinks[1][i])
         https.get(allLinks[0][i], (res) => {
           if (res.statusCode !== 404) {
-            console.log('Result: OK. Response:  ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ',  url: ' + allLinks[0][i]);
+            console.log(emoji.emojify(chalk.red('Result: OK :heavy_check_mark: Response:  ') + chalk.cyan(res.statusCode) + chalk.yellowBright('. Link to: ') + chalk.bold.gray(allLinks[1][i]) + chalk.yellowBright(',  url: ') + chalk.magenta(allLinks[0][i])));
           } else {
-            console.log('Result: FAIL. Response:  ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ',   url: ' + allLinks[0][i]);
+            console.log(emoji.emojify(chalk.white('Result: FAIL :heavy_multiplication_x: Response:  ') + chalk.magentaBright(res.statusCode) + chalk.yellowBright('. Link to: ') + chalk.grey(allLinks[1][i]) + chalk.yellowBright(',  url: ') + chalk.blueBright(allLinks[0][i])));
           }
         })
       } else {
         http.get(allLinks[0][i], (res) => {
           if (res.statusCode !== 404) {
-            console.log('Result: OK. Response:  ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ',  url: ' + allLinks[0][i]);
+            console.log(emoji.emojify(chalk.red('Result: OK :heavy_check_mark: Response:  ') + chalk.cyan(res.statusCode) + chalk.yellowBright('. Link to: ') + chalk.bold.gray(allLinks[1][i]) + chalk.yellowBright(',  url: ') + chalk.magenta(allLinks[0][i])));
           } else {
-            console.log('Result: FAIL. Response:  ' + res.statusCode + '. Link to: ' + allLinks[1][i] + ',  url: ' + allLinks[0][i]);
+            console.log(emoji.emojify(chalk.white('Result: FAIL :heavy_multiplication_x: Response:  ') + chalk.magentaBright(res.statusCode) + chalk.yellowBright('. Link to: ') + chalk.grey(allLinks[1][i]) + chalk.yellowBright(',  url: ') + chalk.blueBright(allLinks[0][i])));
           }
         })
       }
