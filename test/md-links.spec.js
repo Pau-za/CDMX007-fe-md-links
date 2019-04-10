@@ -58,16 +58,16 @@ describe('validate', () => {
   it('should be a function', () => {
     expect(typeof validate).toBe('function');
   })
-  // it('should return a string', () => {
-  //   expect(typeof validate(linksArr)).toBe('string');
-  // })
+  it('should return a string', () => {
+    expect(typeof validate(linksArr)).toBe('string');
+  })
 })
 
 describe('validateStats', () => {
   it('should be a function', () => {
     expect(typeof validateStats).toBe('function');
   })
-  // it('should return a number', () => {
-  //   expect(validateStats(linksArr).toEqual(6));
-  // })
+  it('should return a number', () => {
+    expect(typeof validateStats(linksArr)).toBe('number');
+  })
 })

@@ -1,3 +1,27 @@
+# Markdown-find-links V 1.1.0 
+Esta librería encuentra todas las ligas que encuentre dentro de cada archivo con extensión ".md" (markdown), dentro de la ruta de directorio proporcionada por el usuario.
+
+## Instalación
+Usando npm (una vez que ya has instalado node.js)
+
+```
+$ npm i markdown-find-links
+```
+
+## Ejemplos de uso
+En node.js
+
+```
+// Primero importar la librería
+const mdFindL = require('markdown-find-links');
+
+// 
+```
+
+## En la terminal de Bash
+
+
+
 # Markdown Links
 
 ## Preámbulo
@@ -342,21 +366,21 @@ si tienes dudas existenciales con respecto a estas decisiones. No existe una
 
 ### General
 
-- [ ] Puede instalarse via `npm install --global <github-user>/md-links`
+- [x] Puede instalarse via `npm install --global <github-user>/md-links`
 
 ### `README.md`
 
 - [ ] Colocar el pseudo código o diagrama de flujo con el algoritmo que soluciona el problema.
 - [ ] Un board con el backlog para la implementación de la librería.
 - [ ] Documentación técnica de la librería.
-- [ ] Guía de uso e instalación de la librería
+- [x] Guía de uso e instalación de la librería
 
 ### API `mdLinks(path, opts)`
 
-- [ ] El módulo exporta una función con la interfaz (API) esperada.
+- [x] El módulo exporta una función con la interfaz (API) esperada.
 - [ ] Implementa soporte para archivo individual
-- [ ] Implementa soporte para directorios
-- [ ] Implementa `options.validate`
+- [x] Implementa soporte para directorios
+- [x] Implementa `options.validate`
 
 ### Pruebas / tests
 
@@ -366,10 +390,10 @@ si tienes dudas existenciales con respecto a estas decisiones. No existe una
 
 ### CLI
 
-- [ ] Expone ejecutable `md-links` en el path (configurado en `package.json`)
-- [ ] Se ejecuta sin errores / output esperado
-- [ ] Implementa `--validate`
-- [ ] Implementa `--stats`
+- [x] Expone ejecutable `md-links` en el path (configurado en `package.json`)
+- [x] Se ejecuta sin errores / output esperado
+- [x] Implementa `--validate`
+- [x] Implementa `--stats`
 
 ## Hacker Edition
 
