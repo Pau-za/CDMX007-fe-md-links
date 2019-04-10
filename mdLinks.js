@@ -5,9 +5,11 @@ const path = require('path');
 const validate = require('./src/validate.js');
 const stats = require('./src/stats.js');
 const validateStats = require('./src/validate-stats.js');
-const toRead = require('./src/read-file.js');
+// const toRead = require('./src/read-file.js');
 const md = require('markdown-it')();
+const chalk = require('chalk');
 const jsdom = require("jsdom");
+const console = require('console');
 const {
   JSDOM
 } = jsdom;
@@ -15,8 +17,9 @@ const {
 // cuando el usuario no introduce la ruta de la carpeta que quiere buscar
 module.exports = mdLinks = () => {
   if (process.argv.length <= 2) {
-    console.log("You need to give a file or a directory path");
+    console.log(chalk.bold.gray("You need to give a directory path"));
     process.exit(-1);
+    return "You need to give a directory path";
   } else {
     const userPath = path.resolve(process.argv[2]);
     if (userPath.extname === undefined) {
@@ -50,23 +53,24 @@ module.exports = mdLinks = () => {
             }
             allLinks.push(totalLinks, totalNamesLinks);
             if (process.argv.length <= 3) {
-              console.log('links found in the path: ' + actualPath);
-              for(let i = 0; i < allLinks[0].length; i ++){
-                console.log('Link: ' + allLinks[0][i] + ',  to: ' + allLinks[1][i]);
-              }
+              // console.log(chalk.yellow('links found in the path: ') + chalk.magenta(actualPath));
+              // for(let i = 0; i < allLinks[0].length; i ++){
+              //   console.log(chalk.cyan('Link: ') + chalk.green(allLinks[0][i]) + chalk.red(',  to: ') + chalk.green(allLinks[1][i]));
+              // }
+              console.log(allLinks);
             } else if (process.argv[3] === '--validate') {
               validate(allLinks);
             } else if (process.argv[3] === '--stats') {
               stats(allLinks);
             } else if (process.argv[3] === '--validate--stats') {
               stats(allLinks);
-              validateStats(allLinks)
+              validateStats(allLinks);
             }
           });
         });
       })
-    } else if(userPath.extname === '.md'){
-      toRead(userPath);
+    // } else if(userPath.extname === '.md'){
+    //   toRead(userPath);
     }
   }
 }

@@ -1,5 +1,7 @@
+const chalk = require('chalk');
+
 module.exports = stats = (allLinks) => {
-  console.log('stats result:');
+  // console.log(chalk.green('--stats result:'));
   let total = 0;
   let repeated = 0;
   let unique = 0;
@@ -12,6 +14,7 @@ module.exports = stats = (allLinks) => {
     }
   }
   unique = total - repeated;
-  console.log('Total links: ' + total);
-  console.log('Unique links: ' + unique);
+  console.log(chalk.redBright('Total links: ') + chalk.cyanBright(total));
+  console.log(chalk.yellowBright('Unique links: ') + chalk.cyanBright(unique));
+  return total;
 }
