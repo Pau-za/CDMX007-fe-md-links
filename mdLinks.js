@@ -26,13 +26,17 @@ module.exports = mdLinks = () => {
       let pathArr = [];
       let actualPath = '';
       fs.readdir(userPath, (err, items) => {
-        if (err) throw err;
-        for (var i = 0; i < items.length; i++) {
-          const ext = path.extname(items[i]);
-          if (ext === '.md') {
-            actualPath = userPath + '\\' + items[i];
-            // console.log(actualPath);
-            pathArr.push(actualPath);
+        if (err) {
+          console.log(err);
+        } else {
+
+          for (var i = 0; i < items.length; i++) {
+            const ext = path.extname(items[i]);
+            if (ext === '.md') {
+              actualPath = userPath + '\\' + items[i];
+              // console.log(actualPath);
+              pathArr.push(actualPath);
+            }
           }
         }
         pathArr.forEach(newPath => {
@@ -53,18 +57,18 @@ module.exports = mdLinks = () => {
             }
             allLinks.push(totalLinks, totalNamesLinks);
             if (process.argv.length <= 3) {
-              // console.log(chalk.yellow('links found in the path: ') + chalk.magenta(actualPath));
-              // for(let i = 0; i < allLinks[0].length; i ++){
-              //   console.log(chalk.cyan('Link: ') + chalk.green(allLinks[0][i]) + chalk.red(',  to: ') + chalk.green(allLinks[1][i]));
-              // }
-              console.log(allLinks);
+              console.log(chalk.yellow('links found in the path: ') + chalk.magenta(actualPath));
+              for(let i = 0; i < allLinks[0].length; i ++){
+                console.log(chalk.cyan('Link: ') + chalk.green(allLinks[0][i]) + chalk.red(',  to: ') + chalk.green(allLinks[1][i]));
+              }
+              // console.log(allLinks);
             } else if (process.argv[3] === '--validate') {
               validate(allLinks);
             } else if (process.argv[3] === '--stats') {
               stats(allLinks);
             } else if (process.argv[3] === '--validate--stats') {
               stats(allLinks);
-              validateStats(allLinks);
+              validateStats(allLinks).then(resp => console.log(resp))
             }
           });
         });

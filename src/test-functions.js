@@ -17,11 +17,12 @@ module.exports = mdLinks = (userPath) => {
   if (absPath == undefined) {
     // process.exit(-1);
     return "you should enter a file Path or a directory path";
+  } else if (absPath.extname === '.md') {
+    console.log('its a file path');
+    itsAFile(absPath);
+    return absPath
   } else if (absPath.extname === undefined) {
     itsADirectory(absPath);
-    return absPath
-  } else if (absPath.extname === '.md') {
-    itsAFile(absPath);
     return absPath
   }
 }
@@ -30,36 +31,44 @@ module.exports = itsADirectory = (userPath) => {
   let pathArr = [];
   let actualPath = '';
   fs.readdir(userPath, (err, items) => {
-    if (err) throw err;
-    for (var i = 0; i < items.length; i++) {
-      const ext = path.extname(items[i]);
-      if (ext === '.md') {
-        actualPath = userPath + '\\' + items[i];
-        console.log(actualPath);
-        // pathArr.push(actualPath);
-        itsAFile(actualPath);
-        return actualPath;
+    if (err) {
+      console.log(err);
+    } else {
+
+      for (var i = 0; i < items.length; i++) {
+        const ext = path.extname(items[i]);
+        if (ext === '.md') {
+          actualPath = userPath + '\\' + items[i];
+          console.log(actualPath);
+          // pathArr.push(actualPath);
+          itsAFile(actualPath);
+          return actualPath;
+        }
       }
     }
   })
 }
 
 module.exports = itsAFile = (somePath) => {
+  let allLinks = [];
   fs.readFile(somePath, 'utf8', (err, data) => {
-    if (err) throw err;
-    const renderedReadme = md.render(data); // convierte el readme a html
-    let totalLinks = [];
-    let totalNamesLinks = [];
-    let allLinks = [];
-    const obj = new JSDOM(renderedReadme).window.document.getElementsByTagName("a");
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        totalLinks.push(obj[key].getAttribute("href"));
-        totalNamesLinks.push(obj[key].textContent);
-        // return totalLinks, totalNamesLinks;
+    if (err) {
+      console.log(err)
+    } else {
+
+      const renderedReadme = md.render(data); // convierte el readme a html
+      let totalLinks = [];
+      let totalNamesLinks = [];
+      const obj = new JSDOM(renderedReadme).window.document.getElementsByTagName("a");
+      for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          totalLinks.push(obj[key].getAttribute("href"));
+          totalNamesLinks.push(obj[key].textContent);
+          // return totalLinks, totalNamesLinks;
+          allLinks.push(totalLinks, totalNamesLinks);
+        }
       }
     }
-    allLinks.push(totalLinks, totalNamesLinks);
     if (process.argv.length <= 3) {
       console.log('links found in the path: ' + somePath);
       for (let i = 0; i < allLinks[0].length; i++) {
