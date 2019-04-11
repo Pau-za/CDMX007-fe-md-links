@@ -68,7 +68,7 @@ mdLinks  .\ruta\relativa --stats
 
 A continuación se presenta el diagrama de flujo de la funcionalidad del proyecto presente.
 
-![diagrama-flujo]()
+![diagrama-flujo](https://github.com/Pau-za/CDMX007-fe-md-links/blob/master/src/assets/mdLinks%20project_2.jpg)
 
 -----------------------------------------------------------------
 # Markdown Links
