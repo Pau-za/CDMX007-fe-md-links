@@ -38,6 +38,7 @@ Buscar solo las ligas del documento (o los documentos) markdown
 
 ```
 # Ingresar el comando "mdLinks" + la ruta (que puede ser absoluta o relativa) del directorio a explorar:
+
 mdLinks  .\ruta\relativa 
 ```
 
@@ -47,6 +48,7 @@ Validar las ligas que están en el o los documentos markdown
 
 ```
 # Ingresar el comando "mdLinks" + la ruta (que puede ser absoluta o relativa) del directorio a explorar + "--validate"
+
 mdLinks  .\ruta\relativa --validate
 ```
 
@@ -54,6 +56,7 @@ Pedir las estadísticas de los ligas
 
 ```
 # Ingresar el comando "mdLinks" + la ruta (que puede ser absoluta o relativa) del directorio a explorar + "--stats":
+
 mdLinks  .\ruta\relativa --stats
 ```
 
@@ -61,7 +64,11 @@ mdLinks  .\ruta\relativa --stats
 
 [Aquí](https://trello.com/b/EaLAZWgD/mdlinks) puedes observar el tablero Kanban que se siguió para realizar este proyecto.
 
-## 
+## Diagrama de flujjo 
+
+A continuación se presenta el diagrama de flujo de la funcionalidad del proyecto presente.
+
+![diagrama-flujo]()
 
 -----------------------------------------------------------------
 # Markdown Links
@@ -413,8 +420,8 @@ si tienes dudas existenciales con respecto a estas decisiones. No existe una
 ### `README.md`
 
 - [ ] Colocar el pseudo código o diagrama de flujo con el algoritmo que soluciona el problema.
-- [ ] Un board con el backlog para la implementación de la librería.
-- [ ] Documentación técnica de la librería.
+- [x] Un board con el backlog para la implementación de la librería.
+- [x] Documentación técnica de la librería.
 - [x] Guía de uso e instalación de la librería
 
 ### API `mdLinks(path, opts)`
