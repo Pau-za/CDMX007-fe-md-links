@@ -1,7 +1,7 @@
-// const mdLinks = require('../mdLinks');
-// const validate = require('../src/validate');
-// const stats = require('../src/stats');
-// const validateStats = require('../src/validate-stats');
+const mdLinks = require('../mdLinks');
+const validate = require('../src/validate');
+const stats = require('../src/stats');
+const validateStats = require('../src/validate-stats');
 const testFunctions = require('../src/test-functions');
 const fs = require('fs');
 const path = require('path');

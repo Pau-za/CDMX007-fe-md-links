@@ -10,22 +10,20 @@ validateStats = async (allLinks) => {
         if (allLinks[0][i].includes("https")) {
           https.get(allLinks[0][i], (res) => {
             if(res.statusMessage !== 'OK' || res.statusMessage === ''){
-              console.log(res.statusMessage);
               failLinks++;
-              // resolve(failLinks);
             }
           })
         } else {
           http.get(allLinks[0][i], (res) => {
             if (res.statusMessage !== 'OK') {
-              // console.log(failLinks)
               failLinks ++;
             }
           })
         }
       }
-      console.log(chalk.magenta('Failed Links: ') + chalk.cyanBright(failLinks));
-      console.log(failLinks)
+      setTimeout(() => {console.log(chalk.magenta('Failed Links: ') + chalk.cyanBright(failLinks)) 
+    }, 2000);
+      // console.log(failLinks)
       // reject('Ocurrio un problema')
     })
   }
