@@ -1,27 +1,69 @@
 # Markdown-find-links V 1.1.0 
-Esta librería encuentra todas las ligas que encuentre dentro de cada archivo con extensión ".md" (markdown), dentro de la ruta de directorio proporcionada por el usuario.
+
+Esta librería encuentra todas las ligas que encuentre dentro de cada archivo con extensión ".md" (markdown), dentro de la ruta de directorio proporcionada por el usuario. *markdown-find-links* se ejecuta en la línea de comandos [Bash](https://programminghistorian.org/es/lecciones/introduccion-a-bash). 
+
+### Librerías utilizadas
+
+Implementa las librerías de node.js:
+
+- fs
+- path
+- console
+
+Y las librerías externas:
+
+- [markdown-it](https://www.npmjs.com/package/markdown-it)
+- [jsondom](https://www.npmjs.com/package/jsondom)
+- [chalk](https://www.npmjs.com/search?q=chalk)
+
+### Lenguaje utilizado
+
+El código está escrito en lenguaje de [javascript](https://www.javascript.com/).
+
+### Pruebas unitarias
+
+Para las pruebas unitarias se utilizó [Jest](https://jestjs.io/).
+
 
 ## Instalación
-Usando npm (una vez que ya has instalado node.js)
+Usando npm (una vez que ya has instalado node.js):
 
 ```
 $ npm i markdown-find-links
 ```
 
-## Ejemplos de uso
-En node.js
+## Ejemplos de uso en la Linea de Comandos Shell
+
+Buscar solo las ligas del documento (o los documentos) markdown
 
 ```
-// Primero importar la librería
-const mdFindL = require('markdown-find-links');
-
-// 
+# Ingresar el comando "mdLinks" + la ruta (que puede ser absoluta o relativa) del directorio a explorar:
+mdLinks  .\ruta\relativa 
 ```
 
-## En la terminal de Bash
+### Opciones
 
+Validar las ligas que están en el o los documentos markdown
 
+```
+# Ingresar el comando "mdLinks" + la ruta (que puede ser absoluta o relativa) del directorio a explorar + "--validate"
+mdLinks  .\ruta\relativa --validate
+```
 
+Pedir las estadísticas de los ligas
+
+```
+# Ingresar el comando "mdLinks" + la ruta (que puede ser absoluta o relativa) del directorio a explorar + "--stats":
+mdLinks  .\ruta\relativa --stats
+```
+
+## BACKLOG
+
+[Aquí](https://trello.com/b/EaLAZWgD/mdlinks) puedes observar el tablero Kanban que se siguió para realizar este proyecto.
+
+## 
+
+-----------------------------------------------------------------
 # Markdown Links
 
 ## Preámbulo
